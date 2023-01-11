@@ -3,33 +3,35 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `pages`.
+ * Handles the creation of table `category`.
  */
-class m221204_095911_create_pages_table extends Migration
+class m221204_095911_create_category_table extends Migration
 {
     public function up()
     {
         $this->createTable(
-            'settings',
+            'category',
             [
                 'id' => $this->primaryKey(),
                 'title' => $this->string()->notNull(),
                 'url' => $this->string()->notNull(),
-                'content' => $this->text(),
-                'datetime_at' => $this->timestamp()->defaultValue('CURRENT_TIMESTAMP')
+                'position' => $this->integer(),
+                'parent_id' => $this->integer(),
+                'description' => $this->text(),
+                'description_after' => $this->text()
             ]
         );
         
         // creates index for column `url`
         $this->createIndex(
-            'idx-pages-url',
-            'pages',
+            'idx-category-url',
+            'category',
             'url'
         );
     }
 
     public function down()
     {
-        $this->dropTable('pages');
+        $this->dropTable('category');
     }
 }
