@@ -51,6 +51,20 @@ return [
 ];
 ```
 
+## Usage
+
+Add this to your main configuration's modules array
+
+```
+    'modules' => [
+        'settings' => [
+            'class' => 'ZakharovAndrew\category\Module',
+            'bootstrapVersion' => 5, // if use bootstrap 5
+        ],
+        // ...
+    ],
+```
+
 ## License
 
 **yii2-category** it is available under a MIT License. Detailed information can be found in the `LICENSE.md`.
